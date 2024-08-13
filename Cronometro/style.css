@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url(img/fondo.jpg) no-repeat center center/cover;
+}
+
+.contenedor-principal{
+    width: 80vw;
+    max-width: 600px;
+    min-height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 184, 111);
+    border-radius: 50px;
+}
+
+.contenedor-botones{
+    padding: 20px;
+}
+
+#cronometro{
+    width: 100%;
+    font-size: 80px;
+    user-select: none;
+    font-family: sans-serif;
+}
+
+
+.boton{
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    margin: 10px;
+    padding: 10px;
+    
+}
+
+#boton-inicio-pausa.iniciar,
+#boton-inicio-pausa.iniciar i {
+    background-color: #08e008;
+}
+
+#boton-inicio-pausa.pausar, 
+#boton-inicio-pausa.pausar i {
+    background-color: yellow;
+}
+
+#boton-reiniciar{
+    background-color: red;
+}
+

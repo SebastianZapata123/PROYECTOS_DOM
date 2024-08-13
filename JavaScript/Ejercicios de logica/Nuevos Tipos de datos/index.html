@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* 
+
+    const ws = new WeakSet()
+
+    let valor1 = {"valor1" : 1}
+    let valor2 = {"valor2" : 2}
+
+    ws.add(valor1)
+    ws.add(valor2)
+
+    console.log(ws)
+    console.log(ws.has(valor1))
+
+    ws.delete(valor2)
+
+    console.log(ws)
+
+
+    
+    */
+
+/*
+  const wm = new WeakMap()
+   let llave1= {}
+   let llave2= {}
+   let llave3= {}
+
+  console.log(wm)
+              wm.set(llave2, 
+            console.log(wm
+
+            setInterval(() => {
+                console.log(wm)
+            }, 1000)
+
+
+            setTimeout(()=>{
+                llave1 = null,
+                llave2 = null
+            }, 2000
+            */ /*
+
+            const iterable = [1,2,3,];
+
+            const iterador = iterable[Symbol.iterator]()
+
+            console.log(iterador.next())
+
+            let next = iterador.next()
+
+            while(!next.done){
+                console.log(next.value);
+                next = iterador.next()
+            }
+
+
+
+        */
+
+
+
+
+
+
+
+/*    iterables  
+
+                function* iterable(){
+                    yield "hola"
+                    console.log("Hola consola")
+                    yield "hola 2"
+                    console.log("Seguimos con mas instrucciones")
+                    yield "hola 3"
+                    yield "hola 4"
+                }
+
+                let iterador = iterable()
+
+                const arr = [...iterable()]
+         
+*/ 
+/*    generators 
+
+                function cuadrado(valor){
+                    setTimeout(()=>{
+                        return console.log({valor, resultado: valor * valor})
+                    },Math.random() * 1000)
+                    
+                }
+
+                    function* generador(){
+                        console.log("Inicia generator")
+                        yield cuadrado(0)
+                        yield cuadrado(1)
+                        yield cuadrado(2)
+                        yield cuadrado(3)
+                        yield cuadrado(4)
+                        yield cuadrado(5)
+                        console.log("Termina generator")
+
+                    }
+
+                    let gen = generador()
+                    for(let y of gen){
+                        console.log(y)
+                    }
+
+                    */
+
+
+
+
+
+
+
+
+
+/*   proxys
+
+
+                        const persona ={
+                            nombre: "",
+                            apellido: "",
+                            edad: 0
+                        }
+
+                        const manejador ={
+                            set(obj, prop, valor){
+                                if(Object.keys(obj).indexOf(prop) === -1){
+                                    return console.error("Key invalid!!")
+                                }
+                                obj[prop] = valor
+                                
+                            }
+                        }
+
+                        const jon = new Proxy(persona, manejador)
+                        jon.nombre = "jon"
+                        jon.apellido = "mircha"
+                        jon.edad= 23
+                        jon.twitter = "@jonmircha"
+                        console.log(jon)
+
+
+                        console.log(persona)
+
+                        */ 
+
+        /* propiedades dinamicas 
+        
+            const objUsuarios = {
+                [`id_${Math.round(Math.random() * 100 + 5)}`]: "nombre x"
+            }
+
+            const usuarios = ["jon", "irma", "miguel", "sebastian"]
+                
+            usuarios.forEach((usuario, index) => objUsuarios[`id_${index}`] = usuario)
+
+            console.log(objUsuarios)
+
+
+*/
+
+
+/*
+            function* numeros(){
+                yield 1 
+                yield 2
+                yield 3 
+                yield 4 
+                yield 5
+
+            }
+
+            let numerosIterables = numeros(),
+            iterable = [...numerosIterables]
+            iterable.forEach((element) => console.log(element))s
+
+
+*/
+
+
+
+/*
+
+const producto = {
+    nombre: "",
+    precio: 0,
+    cantidad: 0
+};
+
+const manejador = {
+    set(obj, prop, valor) {
+        if (prop === "cantidad" && valor < 0) {
+            console.log("La cantidad no puede ser negativa");
+        } else {
+            obj[prop] = valor;
+            console.log(`Propiedad escrita: ${prop} = ${valor}`);
+
+            if (prop === "precio") {
+                obj[prop] = valor * 1.1; // Aplicar un 10% de impuestos al precio
+                console.log(`Precio actualizado con impuestos: ${obj[prop]}`);
+            }
+        }
+
+        return true; // Indicar que la escritura fue exitosa
+    },
+    get(obj, prop) {
+        if (prop === "precio") {
+            console.log(`Propiedad leída: ${prop} = ${obj[prop]}`);
+            return obj[prop] * 1.1; // Devolver el precio con impuestos
+        } else {
+            console.log(`Propiedad leída: ${prop} = ${obj[prop]}`);
+            return obj[prop];
+        }
+    }
+};
+
+const dispositivo = new Proxy(producto, manejador);
+
+dispositivo.nombre = "iPhone";
+dispositivo.cantidad = 10;
+dispositivo.precio = 100;
+
+console.log(dispositivo.precio); // Debería imprimir 110 (precio con impuestos)
+console.log(dispositivo.cantidad); // Debería imprimir 10 (cantidad válida) 
+
+
+*/
+
+
+
+    console.log(this)
+        this.lugar = "Contexto global "
+
+        function saludar(saludo, aQuien){
+            console.log(`${saludo} ${aQuien} desde ${this.lugar}`)
+        }
+
+        saludar()
+
+        const obj = {
+            lugar: "Contexto obj"
+        }
+
+
+        saludar.apply(obj, ["hola", "sebastian"])
+
+        saludar.call(obj, "hola", "xd")
+        this.nombre = "window"
+
+
+        const persona = {
+            nombre : "jon",
+            saludar: function(){
+                console.log(`Hola ${this.nombre}`)
+            }
+        }
+
+        persona.saludar()
+
+        const otraPersona = {
+            saludar: persona.saludar.bind(this.persona)
+        }
+
+        otraPersona.saludar()
+
+
+        
+
+
+       
+     
+
+
+    </script>
+</body>
+</html>

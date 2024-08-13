@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="app.css" >
+</head>
+<body>
+    <main   id="calculadora"  class="center" >
+        <div class="screen" >
+            <input id="main-screen"  readonly ></input>
+        </div>
+
+        <div id="button-container" class="center" >
+            <button class="button" id="cero" onclick="operacion('0')">0</button>
+            <button class="button" id="uno" onclick="operacion('1')">1</button>
+            <button class="button" id="dos" onclick="operacion('2')">2</button>
+            <button class="button" id="tres" onclick="operacion('3')" >3</button>
+            <button class="button" id="cuatro" onclick="operacion('4')">4</button>
+            <button class="button"id="cinco" onclick="operacion('5')" >5</button>
+            <button class="button"id="seis" onclick="operacion('6')" >6</button>
+            <button class="button"id="siete" onclick="operacion('7')" >7</button>
+            <button class="button"id="ocho" onclick="operacion('8')" >8</button>
+            <button class="button"id="nueve" onclick="operacion('9')" >9</button>
+            <button class="button"id="enter" onclick="calcular()" >=</button>
+            <button class="button" id="borrar" onclick="clearDisplay()"><i class="bi bi-arrow-left"></i></button>
+            <button class="button" id="suma" onclick="operacion('+')" >+</button>
+            <button class="button" id="resta" onclick="operacion('-')">-</button>
+            <button class="button"id="multiplicacion" onclick="operacion('*')" >×</button>
+            <button class="button" id="division" onclick="operacion('/')" >÷</button>
+        </div>
+    </main>
+
+    <script src="app.js" ></script>
+</body>
+</html>

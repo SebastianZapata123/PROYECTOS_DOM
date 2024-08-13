@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+h1{
+    font-size: 100px;
+    color: aliceblue;
+    backdrop-filter:  brightness(.5);
+  
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    padding: 20px 40px;
+    font-size: 20px;
+    border: 4px solid white;
+    cursor: pointer;
+    transition: 1s background-color;
+    white-space: nowrap;
+
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+
+}
+
+.split{
+    width: 50%;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+
+}
+
+.split.left{
+    position: absolute;
+    left: 0;
+    background-color: pink;
+    background-image: url(https://itechcolombia.co/wp-content/uploads/2022/05/iphone-13-pink-select-2021-1.png);
+    background-size: cover;
+}
+
+.split.right{
+    position: absolute;
+    right: 0;
+    background-color: lightblue;
+    background-image: url(https://agaval.vtexassets.com/arquivos/ids/1434742/image-2e21afaaca2c40f99549ab60274e258d.jpg?v=638429417341670000);
+    background-size: cover;
+}
+
+
+.active-left .left{
+    width: 75%;
+}
+
+.active-left .right{
+    width: 25%;
+}
+
+.active-right .left{
+    width: 25%;
+}
+
+.active-right .right{
+    width: 75%;
+}
+
+.left , .right{
+    transition: width 0.4s ease-in-out;
+}
